@@ -30,8 +30,8 @@ export class StudentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadStudentsFromPromise()
-    // this.loadStudentsFromObs();
+    // this.loadStudentsFromPromise()
+    this.loadStudentsFromObs();
   }
 
   loadStudentsFromPromise(): void {
@@ -50,29 +50,24 @@ export class StudentsComponent implements OnInit {
   }
 
 
-  // loadStudentsFromObs(): void {
-  //   this.isLoading = true;
-  //   this.studentsSubscription = this.studentsService
-  //     .getStudentsObservable()
-  //     // Entre que la info viaja del observable hacia el subcribe, podemos aplicar un pipe
-  //     // para manipular la info, o el flujo de emisiones
-  //     .pipe(take(3))
-  //     .subscribe({
-  //       next: (students) => {
-  //         console.log('Recibimos datos: ', students);
-  //         this.students = [...students];
-  //         this.isLoading = false;
-  //       },
-  //       error: (error) => {
-  //         alert(error);
-  //         this.hasError = true;
-  //         this.isLoading = false;
-  //       },
-  //       complete: () => {
-  //         // this.isLoading = false;
-  //       },
-  //     });
-  // }
+  loadStudentsFromObs(): void {
+    this.isLoading = true;
+    this.studentService.getStudentsObservable().subscribe({
+        next: (students) => {
+          console.log('Recibimos datos: ', students);
+          this.students = students;
+          this.isLoading = false;
+        },
+        error: (error) => {
+          alert(error);
+          this.hasError = true;
+          this.isLoading = false;
+        },
+        complete: () => {
+          // this.isLoading = false;
+        },
+      });
+  }
 
 
   onSubmit() {

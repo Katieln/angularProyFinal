@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { generateRandomString } from "../../shared/utils";
 import { student } from "../../modules/dashboard/pages/students/models";
+import { Observable } from "rxjs";
+
 
 @Injectable({providedIn:'root'})
 
@@ -26,38 +28,32 @@ export class StudentService {
         });
       }
 
-
-    //   getStudentsObservable(): Observable<student[]> {
-    //     return new Observable<student[]>((subscriber) => {
-    //       const students = [
-    //         {
-    //           id: generateRandomString(6),
-    //           name: 'Jill',
-    //           lastName: 'Valentine',
-    //         },
-    //         {
-    //           id: generateRandomString(6),
-    //           name: 'Chris',
-    //           lastName: 'Redfield',
-    //         },
-    //       ];
-    //       setInterval(() => {
-    //         students.push({
-    //           id: generateRandomString(6),
-    //           name: 'NUEVO',
-    //           lastName: 'ESTUDIENTE ' + students.length,
-    //         });
-    //         // Emitimos los estudiantes
-    //         subscriber.next(students);
-    //         // subscriber.error('Error al cargar estudiantes'); // Enviar un error a los subscriptores
-    //         if (students.length === 10) {
-    //           subscriber.complete(); // Notifica al subscritor/es que este obs ya no va a emitir mas datos
-    //         }
-    //       }, 1000);
-    //     });
-    //   }
+      getStudentsObservable(): Observable<student[]> { 
+        return new Observable<student[]>((subscriber) => {
+          const students = [
+            {
+              id: generateRandomString(6),
+              name: 'Luna',
+              lastname: 'Love',
+            },
+            {
+              id: generateRandomString(6),
+              name: 'Chris',
+              lastname: 'Red',
+            },
+          ];
+      
+          setTimeout(() => {
+            // Emitimos los estudiantes
+            subscriber.next(students);
+            
+            subscriber.error('Error al cargar estudiantes'); // Enviar un error a los subscriptores
+            
+            subscriber.complete(); // Notifica al suscriptor que este Observable ya no emitirá más datos
+          }, 1000);
+        });
+      }
+    }
 
 
 
-
-}

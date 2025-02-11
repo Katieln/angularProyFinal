@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { student } from './models';
 import { generateRandomString } from '../../../../shared/utils';
 import { StudentService } from '../../../../core/services/student.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-students',
@@ -19,6 +20,8 @@ export class StudentsComponent implements OnInit {
   isLoading = false;
   hasError = false;
 
+  studentsSubscription?: Subscription;
+
   constructor(private fb: FormBuilder,
   private studentService: StudentService
   ) {
@@ -31,7 +34,7 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     // this.loadStudentsFromPromise()
-    this.loadStudentsFromObs();
+    this.loadStudentsFromObsv();
   }
 
   loadStudentsFromPromise(): void {
@@ -50,12 +53,33 @@ export class StudentsComponent implements OnInit {
   }
 
 
-  loadStudentsFromObs(): void {
+  // loadStudentsFromObs(): void {
+  //   this.isLoading = true;
+  //   this.studentService.getStudentsObservable().subscribe({
+  //       next: (students) => {
+  //         console.log('Recibimos datos: ', students);
+  //         this.students = students;
+  //         this.isLoading = false;
+  //       },
+  //       error: (error) => {
+  //         alert(error);
+  //         this.hasError = true;
+  //         this.isLoading = false;
+  //       },
+  //       complete: () => {
+  //         // this.isLoading = false;
+  //       },
+  //     });
+  // }
+
+  loadStudentsFromObsv(): void {
     this.isLoading = true;
-    this.studentService.getStudentsObservable().subscribe({
+    this.studentsSubscription = this.studentService
+      .getStudentsObservable()
+      .subscribe({
         next: (students) => {
           console.log('Recibimos datos: ', students);
-          this.students = students;
+          this.students = [...students];
           this.isLoading = false;
         },
         error: (error) => {

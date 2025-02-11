@@ -47,7 +47,7 @@ export class StudentService {
             // Emitimos los estudiantes
             subscriber.next(students);
             
-            subscriber.error('Error al cargar estudiantes'); // Enviar un error a los subscriptores
+            // subscriber.error('Error al cargar estudiantes'); // Enviar un error a los subscriptores
             
             subscriber.complete(); // Notifica al suscriptor que este Observable ya no emitirá más datos
           }, 1000);

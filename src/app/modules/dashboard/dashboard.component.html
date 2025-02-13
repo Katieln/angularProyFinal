@@ -1,24 +1,17 @@
-
-
 <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      
-      @if (showFiller) {
-        <p>Lorem, ipsum dolor sit amet consectetur.</p>
-      }
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Clases
-      </button>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
 
-      <app-toolbar (drawerToggle)="drawer.toggle()" />
+    <app-nav-menu />
 
-<main style="padding: 2rem;">
-  <router-outlet/>
-</main>
-    </div>
-  
-  </mat-drawer-container>
-  
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+
+    <app-toolbar (drawerToggle)="drawer.toggle()" />
+
+    <main style="padding: 2rem;">
+      <router-outlet />
+    </main>
+  </div>
+
+</mat-drawer-container>

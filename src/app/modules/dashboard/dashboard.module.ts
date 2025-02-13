@@ -11,6 +11,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { StudentsModule } from './pages/students/students.module';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { SharedModule } from '../../shared/shared.module';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -30,7 +31,8 @@ import { SharedModule } from '../../shared/shared.module';
     MatToolbarModule,
     MatIconModule,
     StudentsModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ],
   exports: [DashboardComponent]
 })

@@ -1,10 +1,13 @@
 <mat-nav-list>
 
 
-    <a routerLink="home" mat-list-item>
+    <a routerLink="home" [activated]="true" mat-list-item>
         Inicio
     </a>
 
+    <!-- <a routerLinkactuve="home" [activated]="true" mat-list-item>
+        Inicio
+    </a> -->
 
     <a routerLink="students" mat-list-item>
         Estudiantes
@@ -15,5 +18,22 @@
     <a routerLink="" mat-list-item>
         Cursos
     </a>
+
+    <a (click)="logout()" mat-list-item>
+        Cerrrar sesion
+    </a>
+
+    <!-- @for (item of linkItems; track $index) {
+        <a
+          [routerLink]="item.routerLink"
+          routerLinkActive
+          #linkItem="routerLinkActive"
+          [activated]="linkItem.isActive"
+          mat-list-item
+        >
+          {{ item.label }}
+        </a>
+        }
+        <a (click)="logout()" mat-list-item> Cerrar sesión</a> -->
 
 </mat-nav-list>

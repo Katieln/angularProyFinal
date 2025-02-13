@@ -4,6 +4,9 @@ import { student } from './models';
 import { generateRandomString } from '../../../../shared/utils';
 import { StudentService } from '../../../../core/services/student.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-students',
@@ -22,8 +25,11 @@ export class StudentsComponent implements OnInit {
 
   studentsSubscription?: Subscription;
 
+  editingStudentId: string | null = null;
+
   constructor(private fb: FormBuilder,
-  private studentService: StudentService
+    private matDialog: MatDialog,
+    private studentService: StudentService
   ) {
     this.studentForm = this.fb.group({
       name: [null, [Validators.required]],
@@ -45,16 +51,16 @@ export class StudentsComponent implements OnInit {
   loadStudentsFromPromise(): void {
     this.isLoading = true;
     this.studentService.getStudentsPromise()
-    .then((student) => {
-      this.students = student;
-      this.isLoading = false; 
-    })
-    .catch((error) => {
-      console.error('Error cargando estudiantes:', error);
-      this.hasError = true; // Manejamos el error
-    }).finally(() => {
-      this.isLoading = false;
-    });
+      .then((student) => {
+        this.students = student;
+        this.isLoading = false;
+      })
+      .catch((error) => {
+        console.error('Error cargando estudiantes:', error);
+        this.hasError = true; // Manejamos el error
+      }).finally(() => {
+        this.isLoading = false;
+      });
   }
 
 
@@ -100,20 +106,31 @@ export class StudentsComponent implements OnInit {
 
 
   onSubmit() {
-    if(this.studentForm.invalid){
+    if (this.studentForm.invalid) {
       this.studentForm.markAllAsTouched();
-    }else{
+    } else {
       console.log(this.studentForm.value);
 
-      this.students = [
-        ...this.students,
-        {
-          id: generateRandomString(8),
-          ...this.studentForm.value,
-        },
-      ];
+      if (!!this.editingStudentId) {
+        // editar
+
+        this.students = this.students.map((student) => 
+          student.id === this.editingStudentId 
+        ? { ...student, ...this.studentForm.value }
+          : student);
+          this.editingStudentId =null;
+      } else {
+        // crear 
+        this.students = [
+          ...this.students,
+          {
+            id: generateRandomString(8),
+            ...this.studentForm.value,
+          },
+        ];
+      }
       this.studentForm.reset();
-      
+
     }
   }
 
@@ -121,6 +138,15 @@ export class StudentsComponent implements OnInit {
     if (confirm('Esta seguro?')) {
       this.students = this.students.filter((el) => el.id != id);
     }
+  }
+
+  onEdit(student: student): void {
+    this.editingStudentId = student.id; // 💡 Asigna el ID para saber qué estudiante se está editando
+    
+    this.studentForm.patchValue({
+      name: student.name,
+      lastName: student.lastname
+    });
   }
 
 }

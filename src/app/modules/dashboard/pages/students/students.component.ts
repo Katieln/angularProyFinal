@@ -32,6 +32,11 @@ export class StudentsComponent implements OnInit {
     })
   }
 
+  ngOnDestroy(): void {
+    // Este ciclo de vida se llama cuando el componente se destruye (sale de la vista);
+    this.studentsSubscription?.unsubscribe();
+  }
+
   ngOnInit(): void {
     // this.loadStudentsFromPromise()
     this.loadStudentsFromObsv();

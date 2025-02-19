@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -9,6 +9,30 @@ import { Router } from '@angular/router';
 })
 export class NavMenuComponent {
 
+
+  linkItems: { label: string; routerLink: string }[] = [
+    {
+      label: 'Inicio',
+      routerLink: 'home'
+    },
+    {
+      label: 'Estudiantes',
+      routerLink: 'students'
+    },
+    {
+      label: 'Cursos',
+      routerLink: 'courses'
+    },
+    {
+      label: 'Profesores',
+      routerLink: 'teachers'
+    },
+    {
+      label: 'Cerrar Sesion',
+      routerLink: 'home'
+    },
+  ];
+  
   constructor(private router: Router) {}
 
   logout(): void{

@@ -1,1 +1,8 @@
-<p>courses works!</p>
+<h2>Cursos</h2>
+
+
+@if (isLoading) {
+<mat-spinner/>
+} @else {
+<app-courses-table [dataSource] = "dataSource" (delete) = "onDelete($event)" />
+}

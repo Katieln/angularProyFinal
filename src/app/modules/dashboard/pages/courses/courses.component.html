@@ -4,5 +4,15 @@
 @if (isLoading) {
 <mat-spinner/>
 } @else {
-<app-courses-table [dataSource] = "dataSource" (delete) = "onDelete($event)" />
+
+
+    <button (click)="openFromDialog()" mat-flat-button>
+        Crear Curso
+    </button>
+
+<app-courses-table 
+[dataSource] = "dataSource" 
+(delete) = "onDelete($event)" 
+(edit)="openFromDialog($event)"
+/>
 }

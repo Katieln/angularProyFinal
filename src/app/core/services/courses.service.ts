@@ -35,9 +35,30 @@ export class CourseService {
     //   }
     
 
+    updateCourseById(id: string, data: { name: string }): Observable<Course[]> {
+        DataBase = DataBase.map((course) =>
+          course.id === id ? { ...course, ...data } : course
+        );
+        return this.getCourses();
+    
+        // return this.httpClient
+        //   .patch<Course>(`${environment.baseApiUrl}/courses/${id}`, data)
+        //   .pipe(concatMap(() => this.getCourses()));
+      }
+    
 
-    deleteCourseByID(id: string): Observable< Course[]>{
+    deleteCourseByID(id: string): Observable <Course[]>{
         DataBase = DataBase.filter(course => course.id != id);
+        return this.getCourses();
+    }
+
+
+    createCourse ( payload : {name: string}): Observable <Course[]> {
+
+        DataBase.push(
+            {...payload,
+            id: generateRandomString(6),
+        })
         return this.getCourses();
     }
 

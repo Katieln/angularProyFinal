@@ -15,6 +15,9 @@ export class CoursesTableComponent {
   @Output()
   delete = new EventEmitter<string> ()
 
+  @Output()
+  edit = new EventEmitter<Course> ()
+
 
   displayedColumns =[
     'id','name', 'action'

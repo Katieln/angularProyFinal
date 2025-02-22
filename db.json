@@ -1,0 +1,96 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Angular"
+    },
+    {
+      "id": "2",
+      "name": "Java"
+    },
+    {
+      "id": "3",
+      "name": "JavaScript"
+    },
+    {
+      "id": "4",
+      "name": "React"
+    },
+    {
+      "id": "5",
+      "name": "DataScience"
+    },
+    {
+      "id": "6",
+      "name": "Econometrics113",
+      "category": "dataScience"
+    },
+    {
+      "id": "7",
+      "name": "Python"
+    },
+    {
+      "id": "c258",
+      "name": "PolMacro",
+      "category": "dataScience"
+    }
+  ],
+
+
+
+  "students": [
+    {
+      "id": "1",
+      "name": "Luna"
+    },
+    {
+      "id": "2",
+      "name": "Ktie"
+    },
+    {
+      "id": "3",
+      "name": "Daniela"
+    },
+    {
+      "id": "4",
+      "name": "Laura"
+    },
+    {
+      "id": "5",
+      "name": "Helena"
+    },
+    {
+      "id": "6",
+      "name": "Diego"
+    },
+    {
+      "id": "7",
+      "name": "Sebastian"
+    }
+  ],
+
+
+
+  "professors": [
+    {
+      "id": "1",
+      "name": "Danna",
+      "courseId": "2"
+    },
+    {
+      "id": "2",
+      "name": "Elisabeth",
+      "courseId": "5"
+    },
+    {
+      "id": "3",
+      "name": "David",
+      "courseId": "4"
+    },
+    {
+      "id": "4",
+      "name": "Juan",
+      "courseId": "6"
+    }
+  ]
+}

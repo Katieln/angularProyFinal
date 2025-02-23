@@ -1,10 +1,6 @@
 {
   "courses": [
     {
-      "id": "1",
-      "name": "Angular"
-    },
-    {
       "id": "2",
       "name": "Java"
     },
@@ -35,9 +31,6 @@
       "category": "dataScience"
     }
   ],
-
-
-
   "students": [
     {
       "id": "1",
@@ -68,10 +61,7 @@
       "name": "Sebastian"
     }
   ],
-
-
-
-  "professors": [
+  "teachers": [
     {
       "id": "1",
       "name": "Danna",

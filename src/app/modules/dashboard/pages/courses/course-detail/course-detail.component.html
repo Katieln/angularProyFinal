@@ -1,0 +1,20 @@
+<div *ngIf="isLoading; else content">
+    <mat-spinner></mat-spinner>
+  </div>
+  
+  <ng-template #content>
+    <div *ngIf="errorMessage; else courseDetails">
+      <p>{{ errorMessage }}</p>
+    </div>
+  
+    <ng-template #courseDetails>
+      <h2>{{ course?.name }}</h2>
+      
+      <h4>Profesores:</h4>
+  
+      <mat-list>
+        <mat-list-item *ngFor="let teacher of course?.teachers">{{ teacher.name }}</mat-list-item>
+      </mat-list>
+    </ng-template>
+  </ng-template>
+  

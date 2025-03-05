@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-enrollments',
   standalone: false,
   templateUrl: './enrollments.component.html',
-  styles: ``
+  styleUrl: './enrollments.component.scss'
 })
 export class EnrollmentsComponent {
 

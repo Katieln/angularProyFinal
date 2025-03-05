@@ -28,6 +28,14 @@ export class NavMenuComponent {
       routerLink: 'teachers'
     },
     {
+      label: 'Usuarios',
+      routerLink: 'users'
+    },
+    {
+      label: 'Inscripciones',
+      routerLink: 'enrollments'
+    },
+    {
       label: 'Cerrar Sesion',
       routerLink: 'home'
     },

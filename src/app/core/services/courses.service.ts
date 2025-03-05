@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { concatMap, delay, Observable, of } from "rxjs";
 import { generateRandomString } from "../../shared/utils";
 import { Course } from "../../modules/dashboard/pages/courses/models/course.models";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "../../../environments/environment.development";
 
 
@@ -28,10 +28,17 @@ export class CourseService {
 
     constructor(private httpClient: HttpClient){}
 
-  getCourses () : Observable < Course[]> {
-        // return of ([...DataBase ]).pipe(delay(1000));
-        return this.httpClient.get<Course[]>( `${environment.baseApiURL}/courses`)
+    getCourses(): Observable<Course[]> {
+      // return of([...MY_FAKE_DATABASE]).pipe(delay(300));
+      const myHeaders = new HttpHeaders().append(
+        'Authorization',
+        localStorage.getItem('access_token') || ''
+      );
+      return this.httpClient.get<Course[]>(`${environment.baseApiURL}/courses`, {
+        headers: myHeaders,
+      });
     }
+
 
     getCourseDetail(id: string): Observable<Course> {
         return this.httpClient.get<Course>(

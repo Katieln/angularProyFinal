@@ -12,6 +12,8 @@ import { StudentsModule } from './pages/students/students.module';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { SharedModule } from '../../shared/shared.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import { UsersComponent } from './pages/users/users.component';
+import { EnrollmentsComponent } from './pages/enrollments/enrollments.component';
 
 
 
@@ -21,7 +23,8 @@ import {MatDialogModule} from '@angular/material/dialog';
   declarations: [
     DashboardComponent,
     ToolbarComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    EnrollmentsComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +33,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    StudentsModule,
     SharedModule,
     MatDialogModule
   ],

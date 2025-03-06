@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { adminGuard } from '../../core/guards/admin.guard';
 
 
 //ruta base: /dasboard
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    // canActivate: [adminGuard],
+    canActivate: [adminGuard],
     loadChildren: () =>
       import('./pages/users/users.module').then((m) => m.UsersModule),
   },

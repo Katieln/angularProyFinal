@@ -63,6 +63,14 @@ loadStudentsAndCourses(): void {
   });
 }
 
-
+onSubmit(): void {
+  if (this.enrollmentForm.invalid) {
+    this.enrollmentForm.markAllAsTouched();
+  } else {
+    this.store.dispatch(
+      EnrollmentActions.createEnrollment({ data: this.enrollmentForm.value })
+    );
+  }
+}
 
 }

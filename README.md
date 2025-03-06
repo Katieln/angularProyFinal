@@ -2,6 +2,26 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.3.
 
+# Usuarios y contrasenas:
+
+  "users": [
+    {
+      "id": "asdas1",
+      "name": "admin",
+      "accessToken": "p8y924htkmsgr1",
+      "email": "admin@email.com",
+      "password": "123456",
+      "role": "ADMIN"
+    },
+    {
+      "id": "asdas2",
+      "name": "employee",
+      "accessToken": "p8y924htknsgr2",
+      "email": "emp@email.com",
+      "password": "123456",
+      "role": "Employee"
+    }]
+
 ## Development server
 
 To start a local development server, run:

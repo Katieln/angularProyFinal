@@ -88,6 +88,34 @@
       "id": "1e",
       "studentId": "1s",
       "courseId": "3c"
+    },
+    {
+      "id": "ccbe",
+      "studentId": "4s",
+      "courseId": "5c"
+    },
+    {
+      "id": "3812",
+      "studentId": "2s",
+      "courseId": "2c"
+    }
+  ],
+  "users": [
+    {
+      "id": "asdas1",
+      "name": "admin",
+      "accessToken": "p8y924htkmsgr1",
+      "email": "admin@email.com",
+      "password": "123456",
+      "role": "ADMIN"
+    },
+    {
+      "id": "asdas2",
+      "name": "employee",
+      "accessToken": "p8y924htknsgr2",
+      "email": "emp@email.com",
+      "password": "123456",
+      "role": "Employee"
     }
   ]
 }

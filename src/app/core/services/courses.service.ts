@@ -6,20 +6,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "../../../environments/environment.development";
 
 
-let DataBase: Course [] = [
-    {
-        id: generateRandomString(6),
-        name: "JavaScript"
-    },
-    {
-        id: generateRandomString(6),
-        name: "Angular"
-    },
-    {
-        id: generateRandomString(6),
-        name: "Java"
-    }
-];
 
 @Injectable ({ providedIn: 'root' })
 

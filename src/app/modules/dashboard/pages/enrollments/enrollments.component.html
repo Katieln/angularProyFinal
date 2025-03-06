@@ -1,1 +1,47 @@
-<p>enrollments works!</p>
+@if (isLoading$ | async){
+    <mat-spinner/>
+} @else {
+    @if(error$ | async){
+        <p>Ha ocurrido un error</p>
+    }
+    @else{
+        <p>enrollments works!</p>
+        
+   
+
+        <!--         [formGroup]="enrollmentForm"
+        (ngSubmit)="onSubmit()" -->
+        <form
+
+        class="grid formgrid w-12"
+        >
+        <div class="col-6">
+            <mat-form-field class="w-full">
+              <mat-label>Estudiante</mat-label>
+              <mat-select formControlName="studentId">
+                <mat-option [value]="student.id" *ngFor="let student of students">
+                    {{ student.name }}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="w-full">
+              <mat-label>Curso</mat-label>
+              <mat-select formControlName="courseId">
+                <mat-option [value]="course.id" *ngFor="let course of courses">
+                    {{ course.name }}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 flex justify-content-end">
+            <button type="submit" mat-flat-button>Guardar</button>
+          </div>
+        </form>
+
+        <pre> {{enrollments$ | async | json }}</pre>
+
+    }
+}
+

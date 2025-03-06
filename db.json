@@ -1,28 +1,28 @@
 {
   "courses": [
     {
-      "id": "2",
+      "id": "2c",
       "name": "Java"
     },
     {
-      "id": "3",
+      "id": "3c",
       "name": "JavaScript"
     },
     {
-      "id": "4",
+      "id": "4c",
       "name": "React"
     },
     {
-      "id": "5",
+      "id": "5c",
       "name": "DataScience"
     },
     {
-      "id": "6",
+      "id": "6c",
       "name": "Econometrics113",
       "category": "dataScience"
     },
     {
-      "id": "7",
+      "id": "7c",
       "name": "Python"
     },
     {
@@ -33,47 +33,47 @@
   ],
   "students": [
     {
-      "id": "1",
+      "id": "1s",
       "name": "Luna"
     },
     {
-      "id": "2",
+      "id": "2s",
       "name": "Ktie"
     },
     {
-      "id": "3",
+      "id": "3s",
       "name": "Daniela"
     },
     {
-      "id": "4",
+      "id": "4s",
       "name": "Laura"
     },
     {
-      "id": "5",
+      "id": "5s",
       "name": "Helena"
     },
     {
-      "id": "6",
+      "id": "6s",
       "name": "Diego"
     },
     {
-      "id": "7",
+      "id": "7s",
       "name": "Sebastian"
     }
   ],
   "teachers": [
     {
-      "id": "1",
+      "id": "1t",
       "name": "Danna",
       "courseId": "2"
     },
     {
-      "id": "2",
+      "id": "2t",
       "name": "Elisabeth",
       "courseId": "5"
     },
     {
-      "id": "3",
+      "id": "3t",
       "name": "David",
       "courseId": "4"
     },
@@ -81,6 +81,13 @@
       "id": "4",
       "name": "Juan",
       "courseId": "6"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1e",
+      "studentId": "1s",
+      "courseId": "3c"
     }
   ]
 }

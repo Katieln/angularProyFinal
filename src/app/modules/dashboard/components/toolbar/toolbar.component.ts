@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { selectAuthUserEmail } from '../../../../store/auth.selectors';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,10 +14,10 @@ export class ToolbarComponent {
   @Output() drawerToggle = new EventEmitter()
 
 
-  // authUserEmail$: Observable<string | undefined>;
+  authUserEmail$: Observable<string | undefined>;
 
-  // constructor(private store: Store) {
-  //   this.authUserEmail$ = this.store.select(selectAuthUserEmail);
-  // }
+  constructor(private store: Store) {
+    this.authUserEmail$ = this.store.select(selectAuthUserEmail);
+  }
 
 }

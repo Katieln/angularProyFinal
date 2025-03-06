@@ -6,7 +6,9 @@
 } @else {
 
 
-    <button (click)="openFromDialog()" mat-flat-button>
+    <button 
+    [disabled]="!(isAdmin$ | async)"
+    (click)="openFromDialog()" mat-flat-button>
         Crear Curso
     </button>
 

@@ -1,7 +1,23 @@
-<!-- <pre>{{ users$ | async | json }} </pre> -->
+<h2>Usuarios</h2>
 
-<ul>
-    <li *ngFor="let user of users$ | async">
-      {{ user.name }} - <button (click)="deleteUserById(user.id)">X</button>
-    </li>
-  </ul>
+
+@if (isLoading) {
+<mat-spinner/>
+} @else {
+
+
+    <button 
+    [disabled]="!(isAdmin$ | async)"
+    (click)="openFromDialog()" mat-flat-button>
+        Crear Usuario
+    </button>
+
+<app-users-table 
+[dataSource] = "dataSource" 
+(delete) = "onDelete($event)" 
+
+/>
+}
+
+<!--  -->
+<!-- (edit)="openFromDialog($event)" -->

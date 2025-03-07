@@ -7,10 +7,15 @@ import { enrollmentFeature } from './store/enrollment.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { EnrollmentEffects } from './store/enrollment.effects';
 import { SharedModule } from '../../../../shared/shared.module';
+import { EnrollmentTableComponent } from './components/enrollment-table/enrollment-table.component';
+import { EnrollmentsComponent } from './enrollments.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    EnrollmentTableComponent,
+    EnrollmentsComponent
+  ],
   imports: [
     CommonModule,
     EnrollmentsRoutingModule,

@@ -23,8 +23,7 @@ import { EnrollmentsComponent } from './pages/enrollments/enrollments.component'
   declarations: [
     DashboardComponent,
     ToolbarComponent,
-    NavMenuComponent,
-    EnrollmentsComponent
+    NavMenuComponent
   ],
   imports: [
     CommonModule,

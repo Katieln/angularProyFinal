@@ -14,6 +14,7 @@ interface CourseFormDialogData {
   templateUrl: './course-form-dialog.component.html',
   styleUrl: './course-form-dialog.component.scss'
 })
+
 export class CourseFormDialogComponent {
 
   courseForm: FormGroup;

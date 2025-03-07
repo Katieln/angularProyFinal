@@ -5,7 +5,8 @@
         <p>Ha ocurrido un error</p>
     }
     @else{
-        <p>enrollments works!</p>
+
+      <h1>Inscripciones</h1>
         
    
         <form
@@ -15,7 +16,7 @@
         >
         <div class="col-6">
             <mat-form-field class="w-full">
-              <mat-label>Estudiante</mat-label>
+              <mat-label class="title-table">Estudiante</mat-label>
               <mat-select formControlName="studentId">
                 <mat-option [value]="student.id" *ngFor="let student of students">
                     {{ student.name }}
@@ -38,7 +39,10 @@
           </div>
         </form>
 
-        <pre> {{enrollments$ | async | json }}</pre>
+
+       
+
+        <app-enrollment-table [dataSource]="enrichedEnrollments$ | async" />
 
     }
 }

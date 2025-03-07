@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { EnrollmentActions } from './store/enrollment.actions';
-import { forkJoin, Observable } from 'rxjs';
+import { combineLatest, forkJoin, map, Observable } from 'rxjs';
 import { Enrollment } from './models';
 import { selectEnrollments, selectEnrollmentsError, selectIsLoadingEnrollments } from './store/enrollment.selectors';
 import { Course } from '../courses/models/course.models';
@@ -19,6 +19,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EnrollmentsComponent implements OnInit, OnDestroy{
 
   enrollments$: Observable<Enrollment[]>;
+  //i
+  enrichedEnrollments$: Observable<Enrollment[]>;
   isLoading$: Observable<boolean>;
   error$: Observable<unknown>;
 
@@ -40,7 +42,25 @@ constructor(
     studentId: [null, Validators.required],
     courseId: [null, Validators.required],
   });
+
+  //i
+  this.enrichedEnrollments$ = combineLatest([
+    this.enrollments$,
+    this.courseService.getCourses(),
+    this.studentService.getStudents()
+  ]).pipe(
+    map(([enrollments, courses, students]) => {
+      return enrollments.map(enrollment => ({
+        ...enrollment,
+        student: students.find(s => s.id === enrollment.studentId),
+        course: courses.find(c => c.id === enrollment.courseId)
+      }));
+    })
+  );
 }
+
+
+
 
 ngOnDestroy(): void {
   this.store.dispatch(EnrollmentActions.resetState());

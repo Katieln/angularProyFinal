@@ -4,6 +4,9 @@ import { User } from './models/users.model';
 import { Observable } from 'rxjs';
 import { selectUsers } from './store/user.selectors';
 import { Store } from '@ngrx/store';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../../../../core/services/auth.service';
+import { UserFormDialogComponent } from './components/user-form-dialog/user-form-dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -12,22 +15,99 @@ import { Store } from '@ngrx/store';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent implements OnInit {
-  users$: Observable<User[]>;
+ isLoading = false
 
-  constructor(private usersService: UsersService, private store: Store) {
-    this.users$ = this.store.select(selectUsers);
+  dataSource: User[]=[];
+
+  isAdmin$: Observable<boolean>;
+
+  constructor(
+    private userService: UsersService,
+    private matDialog: MatDialog,
+    private authService: AuthService
+  ) {this.isAdmin$ = this.authService.isAdmin$;}
+
+  
+  handleusersUpdate(data: User[]): void {
+    this.dataSource = [...data];
   }
 
-  ngOnDestroy(): void {
-    this.usersService.resetUserState();
+  openFromDialog(editingUser?: User): void {
+    if (editingUser) {
+      console.log('Se va a editar: ', editingUser);
+    }
+    this.matDialog
+      .open(UserFormDialogComponent, { data: { editingUser } })
+      // Cuando el dialogo se cierra...
+      .afterClosed()
+      .subscribe({
+        next: (data) => {
+          if (!!data) {
+            // CREAR O ACTUALIZAR CURSO
+            if (!!editingUser) {
+              // ACTUALIZAR
+              this.updateUser(editingUser.id, data);
+            } else {
+              // CREAR
+              this.createUser(data);
+            }
+          }
+        },
+      });
   }
 
-  ngOnInit(): void {
-    this.usersService.loadUsers()
+
+  createUser (data: {name: string}): void{
+    this.userService.createUser(data).subscribe ({
+      next: (data) => this.handleusersUpdate(data),
+      error: (err) => (this.isLoading = false),
+      complete: () => (this.isLoading = false),
+    })
   }
 
-  deleteUserById(id: string) {
-    this.usersService.deleteUserById(id);
+
+
+  updateUser(id: string, data: { name: string }) {
+    this.isLoading = true;
+    this.userService.updateUserById(id, data).subscribe({
+      next: (data) => this.handleusersUpdate(data),
+      error: (err) => (this.isLoading = false),
+      complete: () => (this.isLoading = false),
+    });
+  }
+
+
+
+  ngOnInit (): void{
+    this.isLoading = true
+    this.userService.getUsers().subscribe({
+      next:(data)=>{
+        this.dataSource  = [...data];
+        console.log( "recibimos los datos de GetUsers", data)
+      },
+      error: () =>{
+        this.isLoading = false
+      },
+      complete:() =>
+        this.isLoading = false
+    })
+  }
+
+  onDelete(id: string): void {
+    if (confirm('Esta seguro?')) {
+      this.isLoading = true;
+      this.userService.deleteUserByID(id).subscribe({
+        next: (data) => {
+          this.handleusersUpdate(data);
+        },
+        error: (err) => {
+          this.isLoading = false;
+        },
+        complete: () => {
+          this.isLoading = false;
+        },
+      });
+    }
   }
 
 

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Observable } from "rxjs";
+import { concatMap, Observable } from "rxjs";
 import { Enrollment } from "../../modules/dashboard/pages/enrollments/models";
 import { environment } from "../../../environments/environment.development";
 
@@ -21,6 +21,19 @@ export class EnrollmentService {
           data
         );
       }
+
+       deleteEnrollmentByID(id: string): Observable <Enrollment[]>{
+              return this.httpClient.delete <Enrollment>( `${environment.baseApiURL}/Enrollments/${id}` )
+              .pipe(concatMap(()=>this.getEnrollments()))
+          }
+      
+          updateEnrollmentById(id: string, data: { name: string }): Observable<Enrollment[]> {
+              return this.httpClient
+                .patch<Enrollment>(`${environment.baseApiURL}/Enrollments/${id}`, data)
+                .pipe(concatMap(() => this.getEnrollments()));    
+            }
+          
+      
 
 
 }

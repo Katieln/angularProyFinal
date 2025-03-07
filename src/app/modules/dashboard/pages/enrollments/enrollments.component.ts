@@ -93,4 +93,28 @@ onSubmit(): void {
   }
 }
 
+onDeleteEnrollment(id: string): void {
+  this.store.dispatch(EnrollmentActions.deleteEnrollment({ id }));
 }
+
+onEditEnrollment(enrollment: Enrollment): void {
+  this.enrollmentForm.patchValue({
+    studentId: enrollment.studentId,
+    courseId: enrollment.courseId,
+  });
+
+  this.store.dispatch(
+    EnrollmentActions.updateEnrollment({
+      id: enrollment.id,
+      data: {
+        studentId: enrollment.studentId,
+        courseId: enrollment.courseId
+      }
+    })
+  );
+}
+
+
+
+}
+

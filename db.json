@@ -38,39 +38,19 @@
   ],
   "students": [
     {
-      "id": "1s",
+      "id": "0ba0",
       "name": "Luna",
       "lastname": "Love"
     },
     {
-      "id": "1s",
-      "name": "katie",
-      "lastname": "Love"
-    },
-    {
-      "id": "2d26",
-      "name": "lona",
-      "lastname": "lovely1"
-    },
-    {
-      "id": "e45b",
-      "name": "lkn",
-      "lastname": "lkn"
-    },
-    {
-      "id": "0ba0",
-      "name": "",
-      "lastname": ""
-    },
-    {
       "id": "1c76",
-      "name": "",
-      "lastname": ""
+      "name": "katie",
+      "lastname": "kiareth"
     },
     {
-      "id": "6640",
-      "name": "kjbl",
-      "lastname": "lknl"
+      "id": "b369",
+      "name": "Lauren",
+      "lastname": "Strauss"
     }
   ],
   "teachers": [
@@ -97,24 +77,14 @@
   ],
   "enrollments": [
     {
-      "id": "1e",
-      "studentId": "1s",
-      "courseId": null
+      "id": "48db",
+      "studentId": "1c76",
+      "courseId": "6c"
     },
     {
-      "id": "ccbe",
-      "studentId": "4s",
-      "courseId": null
-    },
-    {
-      "id": "3812",
-      "studentId": "2s",
-      "courseId": null
-    },
-    {
-      "id": "9da7",
-      "studentId": "1s",
-      "courseId": null
+      "id": "43ed",
+      "studentId": "0ba0",
+      "courseId": "6100"
     }
   ],
   "users": [

@@ -49,6 +49,34 @@ createEnrollments$ = createEffect(() => {
   );
 });
 
+
+deleteEnrollment$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(EnrollmentActions.deleteEnrollment),
+    concatMap((action) =>
+      this.enrollmentService.deleteEnrollmentByID(action.id).pipe(
+        map(() => EnrollmentActions.deleteEnrollmentSuccess({ id: action.id })),
+        catchError((error) => of(EnrollmentActions.deleteEnrollmentFailure({ error })))
+      )
+    )
+  )
+);
+
+// updateEnrollment$ = createEffect(() =>
+//   this.actions$.pipe(
+//     ofType(EnrollmentActions.updateEnrollment),
+//     concatMap((action) =>
+//       this.enrollmentService.updateEnrollmentById(action.id, action.data).pipe(
+//         map((updatedEnrollment) =>
+//           EnrollmentActions.updateEnrollmentSuccess({ data: updatedEnrollment })
+//         ),
+//         catchError((error) => of(EnrollmentActions.updateEnrollmentFailure({ error })))
+//       )
+//     )
+//   )
+// );
+
+
   constructor(
     private enrollmentService: EnrollmentService) {}
 }

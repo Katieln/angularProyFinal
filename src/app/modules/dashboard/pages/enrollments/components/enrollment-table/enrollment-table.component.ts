@@ -28,8 +28,12 @@ export class EnrollmentTableComponent {
     if (changes['dataSource'] && changes['dataSource'].currentValue) {
       this.dataSource = changes['dataSource'].currentValue;
     }
-
   }
+
+  onDeleteEnrollment(id: string): void {
+    this.delete.emit(id);
+  }
+  
 
   isAdmin$: Observable<boolean>;
   
@@ -37,5 +41,10 @@ export class EnrollmentTableComponent {
       this.isAdmin$ = this.authService.isAdmin$;
     }
   
+    
+    
+
+
+
 
 }

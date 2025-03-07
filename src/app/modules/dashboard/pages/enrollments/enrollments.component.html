@@ -42,7 +42,11 @@
 
        
 
-        <app-enrollment-table [dataSource]="enrichedEnrollments$ | async" />
+        <app-enrollment-table 
+        [dataSource]="enrichedEnrollments$ | async" 
+        (delete)="onDeleteEnrollment($event)"
+        (edit)="onEditEnrollment($event)"
+        />
 
     }
 }

@@ -43,17 +43,12 @@ export class CourseService {
     deleteCourseByID(id: string): Observable <Course[]>{
         return this.httpClient.delete <Course>( `${environment.baseApiURL}/courses/${id}` )
         .pipe(concatMap(()=>this.getCourses()))
-
-
-
     }
 
     updateCourseById(id: string, data: { name: string }): Observable<Course[]> {
         return this.httpClient
           .patch<Course>(`${environment.baseApiURL}/courses/${id}`, data)
-          .pipe(concatMap(() => this.getCourses()));
-
-      
+          .pipe(concatMap(() => this.getCourses()));    
       }
     
 

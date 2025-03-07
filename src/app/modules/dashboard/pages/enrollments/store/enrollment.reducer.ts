@@ -68,6 +68,20 @@ export const reducer = createReducer(
   }),
 
 
+  // Eliminar Enrollment
+on(EnrollmentActions.deleteEnrollmentSuccess, (state, action) => ({
+  ...state,
+  enrollments: state.enrollments.filter(enrollment => enrollment.id !== action.id)
+})),
+
+// Actualizar Enrollment
+on(EnrollmentActions.updateEnrollmentSuccess, (state, action) => ({
+  ...state,
+  enrollments: state.enrollments.map(enrollment =>
+    enrollment.id === action.data.id ? { ...enrollment, ...action.data } : enrollment
+  )
+})),
+
 
   // Reset
   on(EnrollmentActions.resetState, () => initialState),

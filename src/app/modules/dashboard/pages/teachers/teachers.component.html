@@ -1,1 +1,5 @@
-<p>teachers works!</p>
+<h1>Profesores</h1>
+<app-teacher-table
+[dataSource] = "dataSource" 
+(delete) = "onDelete($event)" 
+(edit)="openFromDialog($event)"/>

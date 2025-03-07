@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { concatMap, delay, Observable, of } from "rxjs";
-import { generateRandomString } from "../../shared/utils";
 import { Course } from "../../modules/dashboard/pages/courses/models/course.models";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "../../../environments/environment.development";

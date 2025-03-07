@@ -25,17 +25,17 @@ export class NavMenuComponent {
       routerLink: 'courses'
     },
     {
-      label: 'Profesores',
-      routerLink: 'teachers'
+      label: 'Inscripciones',
+      routerLink: 'enrollments'
     },
     {
       label: 'Usuarios',
       routerLink: 'users'
     },
     {
-      label: 'Inscripciones',
-      routerLink: 'enrollments'
-    }
+      label: 'Profesores',
+      routerLink: 'teachers'
+    },
   ];
   
   constructor(private authService: AuthService) {}

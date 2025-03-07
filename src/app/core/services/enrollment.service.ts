@@ -23,13 +23,13 @@ export class EnrollmentService {
       }
 
        deleteEnrollmentByID(id: string): Observable <Enrollment[]>{
-              return this.httpClient.delete <Enrollment>( `${environment.baseApiURL}/Enrollments/${id}` )
+              return this.httpClient.delete <Enrollment>( `${environment.baseApiURL}/enrollments/${id}` )
               .pipe(concatMap(()=>this.getEnrollments()))
           }
       
           updateEnrollmentById(id: string, data: { name: string }): Observable<Enrollment[]> {
               return this.httpClient
-                .patch<Enrollment>(`${environment.baseApiURL}/Enrollments/${id}`, data)
+                .patch<Enrollment>(`${environment.baseApiURL}/enrollments/${id}`, data)
                 .pipe(concatMap(() => this.getEnrollments()));    
             }
           

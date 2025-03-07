@@ -77,14 +77,14 @@
   ],
   "enrollments": [
     {
-      "id": "48db",
-      "studentId": "1c76",
-      "courseId": "6c"
-    },
-    {
       "id": "43ed",
       "studentId": "0ba0",
       "courseId": "6100"
+    },
+    {
+      "id": "8586",
+      "studentId": "1c76",
+      "courseId": "6c"
     }
   ],
   "users": [

@@ -15,7 +15,7 @@ export class CourseService {
     constructor(private httpClient: HttpClient){}
 
     getCourses(): Observable<Course[]> {
-      // return of([...MY_FAKE_DATABASE]).pipe(delay(300));
+
       const myHeaders = new HttpHeaders().append(
         'Authorization',
         localStorage.getItem('access_token') || ''
@@ -37,11 +37,7 @@ export class CourseService {
         return this.httpClient.post <Course>( `${environment.baseApiURL}/courses`,  payload )
         .pipe(concatMap(()=>this.getCourses()))
 
-        // DataBase.push(
-        //     {...payload,
-        //     id: generateRandomString(6),
-        // })
-        // return this.getCourses();
+
     }
 
     deleteCourseByID(id: string): Observable <Course[]>{
@@ -49,8 +45,7 @@ export class CourseService {
         .pipe(concatMap(()=>this.getCourses()))
 
 
-        // DataBase = DataBase.filter(course => course.id != id);
-        // return this.getCourses();
+
     }
 
     updateCourseById(id: string, data: { name: string }): Observable<Course[]> {
@@ -58,10 +53,6 @@ export class CourseService {
           .patch<Course>(`${environment.baseApiURL}/courses/${id}`, data)
           .pipe(concatMap(() => this.getCourses()));
 
-        // DataBase = DataBase.map((course) =>
-        //     course.id === id ? { ...course, ...data } : course
-        //   );
-        //   return this.getCourses();
       
       }
     

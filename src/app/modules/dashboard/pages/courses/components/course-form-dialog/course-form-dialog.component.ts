@@ -27,7 +27,7 @@ constructor(
 )  {
     this.courseForm = this.fb.group ({
       name: ['', [Validators.required]],
-      category:['']
+      category:['', [Validators.required]]
     });
 
     if (!!data && !!data.editingCourse) {

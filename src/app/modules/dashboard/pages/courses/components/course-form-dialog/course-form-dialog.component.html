@@ -11,7 +11,7 @@
         <mat-label>Categoria</mat-label>
 
     <mat-select formControlName="category">
-        <mat-option [value]="'programacion'">programacion</mat-option>
+        <mat-option required [value]="'programacion'">programacion</mat-option>
         <mat-option [value]="'dataScience'">DataScience</mat-option>
     </mat-select>
 </mat-form-field>
@@ -19,7 +19,9 @@
 </div>
 
 <div mat-dialog-actions>
-    <button (click)="onConfirm()" mat-button>Confirmar</button>
+    <button (click)="onConfirm()" mat-button [disabled]="courseForm.invalid">Confirmar</button>
     <button mat-dialog-close mat-button>Cancelar</button>
 
 </div>
+
+

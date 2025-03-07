@@ -5,7 +5,7 @@ import { combineLatest, forkJoin, map, Observable } from 'rxjs';
 import { Enrollment } from './models';
 import { selectEnrollments, selectEnrollmentsError, selectIsLoadingEnrollments } from './store/enrollment.selectors';
 import { Course } from '../courses/models/course.models';
-import { student } from '../students/models';
+import { Student } from '../students/models';
 import { CourseService } from '../../../../core/services/courses.service';
 import { StudentService } from '../../../../core/services/student.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -25,7 +25,7 @@ export class EnrollmentsComponent implements OnInit, OnDestroy{
   error$: Observable<unknown>;
 
   courses: Course[] = [];
-  students: student[] = [];
+  students: Student[] = [];
 
   enrollmentForm: FormGroup;
 

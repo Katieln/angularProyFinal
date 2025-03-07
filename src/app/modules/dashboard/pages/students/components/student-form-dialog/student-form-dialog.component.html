@@ -1,0 +1,38 @@
+<!--  esto se muestre export class StudentFormDialogComponent { -->
+
+<h2 mat-dialog-title>Crear Estudiante!</h2>
+
+<div mat-dialog-content>
+<form [formGroup]="StudentForm">
+    <mat-form-field class="w-full">
+        <mat-label> Nombre Estudiante </mat-label>
+        <input formControlName="name" matInput/>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+        <mat-label> Apellido Estudiante </mat-label>
+        <input formControlName="lastname" matInput required/>
+    </mat-form-field>
+</form>
+</div>
+
+<div mat-dialog-actions>
+    <button (click)="onConfirm()" mat-button [disabled]="StudentForm.invalid">Confirmar</button>
+    <button mat-dialog-close mat-button>Cancelar</button>
+
+</div>
+
+<!-- 
+y esto  se muestre export class DetailStudentComponent {
+
+}!!
+<h2>Detalles del Estudiante</h2>
+
+<div *ngIf="student; else noData">
+  <p><strong>Nombre:</strong> {{ student.name }}</p>
+  <p><strong>Apellido:</strong> {{ student.lastname }}</p>
+</div>
+
+<ng-template #noData>
+  <p>No se encontró información del estudiante.</p>
+</ng-template> -->

@@ -13,12 +13,16 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { SharedModule } from '../../../../shared/shared.module';
+import { StudentTableComponent } from './components/student-table/student-table.component';
+import { StudentFormDialogComponent } from './components/student-form-dialog/student-form-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     StudentsComponent,
+    StudentTableComponent,
+    StudentFormDialogComponent,
 
   ],
   imports: [

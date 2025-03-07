@@ -1,29 +1,9 @@
 {
   "courses": [
     {
-      "id": "2c",
-      "name": "Java"
-    },
-    {
-      "id": "3c",
-      "name": "JavaScript"
-    },
-    {
-      "id": "4c",
-      "name": "React"
-    },
-    {
-      "id": "5c",
-      "name": "DataScience"
-    },
-    {
       "id": "6c",
-      "name": "Econometrics113",
+      "name": "Econometrics",
       "category": "dataScience"
-    },
-    {
-      "id": "7c",
-      "name": "Python"
     },
     {
       "id": "c258",
@@ -34,36 +14,63 @@
       "id": "8df5",
       "name": "Business Intelligence",
       "category": "dataScience"
+    },
+    {
+      "id": "6100",
+      "name": "Java",
+      "category": "programacion"
+    },
+    {
+      "id": "5ab5",
+      "name": "React",
+      "category": "programacion"
+    },
+    {
+      "id": "e231",
+      "name": "Java",
+      "category": "programacion"
+    },
+    {
+      "id": "ee34",
+      "name": "Angular",
+      "category": "programacion"
     }
   ],
   "students": [
     {
       "id": "1s",
-      "name": "Luna"
+      "name": "Luna",
+      "lastname": "Love"
     },
     {
-      "id": "2s",
-      "name": "Ktie"
+      "id": "1s",
+      "name": "katie",
+      "lastname": "Love"
     },
     {
-      "id": "3s",
-      "name": "Daniela"
+      "id": "2d26",
+      "name": "lona",
+      "lastname": "lovely1"
     },
     {
-      "id": "4s",
-      "name": "Laura"
+      "id": "e45b",
+      "name": "lkn",
+      "lastname": "lkn"
     },
     {
-      "id": "5s",
-      "name": "Helena"
+      "id": "0ba0",
+      "name": "",
+      "lastname": ""
     },
     {
-      "id": "6s",
-      "name": "Diego"
+      "id": "1c76",
+      "name": "",
+      "lastname": ""
     },
     {
-      "id": "7s",
-      "name": "Sebastian"
+      "id": "6640",
+      "name": "kjbl",
+      "lastname": "lknl"
     }
   ],
   "teachers": [
@@ -92,22 +99,22 @@
     {
       "id": "1e",
       "studentId": "1s",
-      "courseId": "3c"
+      "courseId": null
     },
     {
       "id": "ccbe",
       "studentId": "4s",
-      "courseId": "5c"
+      "courseId": null
     },
     {
       "id": "3812",
       "studentId": "2s",
-      "courseId": "2c"
+      "courseId": null
     },
     {
       "id": "9da7",
       "studentId": "1s",
-      "courseId": "3c"
+      "courseId": null
     }
   ],
   "users": [

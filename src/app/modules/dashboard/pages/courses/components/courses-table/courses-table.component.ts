@@ -22,7 +22,7 @@ export class CoursesTableComponent {
 
 
   displayedColumns =[
-    'id','name', 'action'
+    'id','name', 'category','action'
   ]
 
   isAdmin$: Observable<boolean>;

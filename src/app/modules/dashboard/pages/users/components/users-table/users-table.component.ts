@@ -22,7 +22,7 @@ export class UsersTableComponent {
 
 
   displayedColumns =[
-    'id','name', 'action'
+    'id','name', 'role','action'
   ]
 
   isAdmin$: Observable<boolean>;

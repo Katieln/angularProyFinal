@@ -29,26 +29,26 @@ export class UsersService {
           'Authorization',
           localStorage.getItem('access_token') || ''
         );
-        return this.httpClient.get<User[]>(`${environment.baseApiURL}/Users`, {
+        return this.httpClient.get<User[]>(`${environment.baseApiURL}/users`, {
           headers: myHeaders,
         });
       }
 
 
   createUser ( payload : {name: string}): Observable <User[]> {
-          return this.httpClient.post <User>( `${environment.baseApiURL}/Users`,  payload )
+          return this.httpClient.post <User>( `${environment.baseApiURL}/users`,  payload )
           .pipe(concatMap(()=>this.getUsers()))
 
       }
 
       updateUserById(id: string, data: { name: string }): Observable<User[]> {
               return this.httpClient
-                .patch<User>(`${environment.baseApiURL}/Users/${id}`, data)
+                .patch<User>(`${environment.baseApiURL}/users/${id}`, data)
                 .pipe(concatMap(() => this.getUsers()));            
             }
 
         deleteUserByID(id: string): Observable <User[]>{
-            return this.httpClient.delete <User>( `${environment.baseApiURL}/Users/${id}` )
+            return this.httpClient.delete <User>( `${environment.baseApiURL}/users/${id}` )
             .pipe(concatMap(()=>this.getUsers()))
     
 

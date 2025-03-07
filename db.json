@@ -29,6 +29,11 @@
       "id": "c258",
       "name": "PolMacro",
       "category": "dataScience"
+    },
+    {
+      "id": "8df5",
+      "name": "Business Intelligence",
+      "category": "dataScience"
     }
   ],
   "students": [

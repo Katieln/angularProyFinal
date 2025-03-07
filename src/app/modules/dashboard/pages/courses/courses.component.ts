@@ -24,7 +24,7 @@ export class CoursesComponent implements OnInit{
     private courseService: CourseService,
     private matDialog: MatDialog,
     private authService: AuthService
-  ) {}
+  ) {this.isAdmin$ = this.authService.isAdmin$;}
 
   
   handleCoursesUpdate(data: Course[]): void {

@@ -127,6 +127,7 @@
     {
       "id": "01b3",
       "name": "adm2",
+      "accessToken": "p8y924hjktknsgr2",
       "email": "adm2@email.com",
       "password": "123456",
       "role": "ADMIN"

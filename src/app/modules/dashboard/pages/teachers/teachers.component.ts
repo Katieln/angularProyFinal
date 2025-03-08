@@ -64,17 +64,28 @@ export class TeachersComponent  implements OnInit{
 
   createTeacher(data: { name: string; courseId: string }): void {
     this.TeacherService.createTeacher(data).subscribe({
-      next: (updatedTeachers) => this.handleTeachersUpdate(updatedTeachers),
+      next: (updatedTeachers) => {
+        // Asegurar que cada profesor tenga el curso asignado
+        this.dataSource = updatedTeachers.map(teacher => ({
+          ...teacher,
+          course: this.courses.find(course => course.id === teacher.courseId) // Vincula el curso
+        }));
+      },
       error: (err) => console.error("Error al crear profesor:", err),
       complete: () => (this.isLoading = false),
     });
   }
   
   
+  
   updateTeacher(id: string, data: { name: string; courseId: string }): void {
     this.isLoading = true;
     this.TeacherService.updateTeacherById(id, data).subscribe({
-      next: (updatedTeachers) => this.handleTeachersUpdate(updatedTeachers),
+      next: (updatedTeachers) =>   this.dataSource = updatedTeachers.map(teacher => ({
+        ...teacher,
+        course: this.courses.find(course => course.id === teacher.courseId) // Vincula el curso
+      })),
+      
       error: (err) => console.error("Error al actualizar profesor:", err),
       complete: () => (this.isLoading = false),
     });

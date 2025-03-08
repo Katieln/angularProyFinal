@@ -65,13 +65,24 @@
   ],
   "teachers": [
     {
-      "id": "6t",
+      "id": "8ded",
       "name": "Adara",
-      "courseId": "c258"
+      "courseId": "8df5"
     },
     {
-      "id": "c9b6",
-      "name": "Camilo"
+      "id": "2d9e",
+      "name": "Katie",
+      "courseId": "6c"
+    },
+    {
+      "id": "d801",
+      "name": "Danna1",
+      "courseId": "5ab5"
+    },
+    {
+      "id": "2ac4",
+      "name": "Emma",
+      "courseId": "ee34"
     }
   ],
   "enrollments": [

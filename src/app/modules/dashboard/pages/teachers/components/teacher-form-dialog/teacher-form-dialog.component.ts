@@ -46,7 +46,7 @@ export class TeacherFormDialogComponent {
       }
       const teacherData = {
         name: this.TeacherForm.value.name,
-        courseId: this.TeacherForm.value.course // course ya tiene el ID
+        courseId: this.TeacherForm.value.courseId // course ya tiene el ID
       };
       console.log("Datos del profesor a guardar:", teacherData); // Verifica que el objeto tenga `courseId`
     

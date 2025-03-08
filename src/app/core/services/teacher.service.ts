@@ -13,17 +13,17 @@ export class TeacherService {
 
     constructor(private httpClient: HttpClient){}
 
+    
     getTeachers(): Observable<Teacher[]> {
-
-      const myHeaders = new HttpHeaders().append(
-        'Authorization',
-        localStorage.getItem('access_token') || ''
-      );
-      return this.httpClient.get<Teacher[]>(`${environment.baseApiURL}/teachers`, {
-        headers: myHeaders,
-      });
-    }
-
+        const myHeaders = new HttpHeaders().append(
+          'Authorization',
+          localStorage.getItem('access_token') || ''
+        );
+        return this.httpClient.get<Teacher[]>(`${environment.baseApiURL}/teachers?_expand=course`, {
+          headers: myHeaders,
+        });
+      }
+      
 
     getTeacherDetail(id: string): Observable<Teacher> {
         return this.httpClient.get<Teacher>(
@@ -31,20 +31,19 @@ export class TeacherService {
         );
       }
 
+      createTeacher(payload: { name: string; courseId: string }): Observable<Teacher[]> {
+        return this.httpClient
+          .post<Teacher>(`${environment.baseApiURL}/teachers`, payload)
+          .pipe(concatMap(() => this.getTeachers()));
+      }
 
-    createTeacher ( payload : {name: string}): Observable <Teacher[]> {
-        return this.httpClient.post <Teacher>( `${environment.baseApiURL}/teachers`,  payload )
-        .pipe(concatMap(()=>this.getTeachers()))
-
-
-    }
 
     deleteTeacherByID(id: string): Observable <Teacher[]>{
         return this.httpClient.delete <Teacher>( `${environment.baseApiURL}/teachers/${id}` )
         .pipe(concatMap(()=>this.getTeachers()))
     }
 
-    updateTeacherById(id: string, data: { name: string }): Observable<Teacher[]> {
+    updateTeacherById(id: string, data: { name: string; courseId: string  }): Observable<Teacher[]> {
         return this.httpClient
           .patch<Teacher>(`${environment.baseApiURL}/teachers/${id}`, data)
           .pipe(concatMap(() => this.getTeachers()));    

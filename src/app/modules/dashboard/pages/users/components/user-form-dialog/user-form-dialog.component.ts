@@ -26,7 +26,9 @@ constructor(
 )  {
     this.UserForm = this.fb.group ({
       name: ['', [Validators.required]],
-      category:['']
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      role: ['', [Validators.required]],
     });
 
     if (!!data && !!data.editingUser) {

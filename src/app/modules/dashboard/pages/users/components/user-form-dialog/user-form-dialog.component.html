@@ -1,25 +1,33 @@
-<h2 mat-dialog-title>Crear Curso!</h2>
+<h2 mat-dialog-title>Crear Usuario</h2>
 
 <div mat-dialog-content>
-<form [formGroup]="UserForm">
+  <form [formGroup]="UserForm">
     <mat-form-field class="w-full">
-        <mat-label> Nombre Curso </mat-label>
-        <input formControlName="name" matInput/>
+      <mat-label> Nombre </mat-label>
+      <input formControlName="name" matInput />
     </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Categoria</mat-label>
+    <mat-form-field class="w-full">
+      <mat-label> Correo Electrónico </mat-label>
+      <input formControlName="email" matInput type="email" />
+    </mat-form-field>
 
-    <mat-select formControlName="category">
-        <mat-option [value]="'programacion'">programacion</mat-option>
-        <mat-option [value]="'dataScience'">DataScience</mat-option>
-    </mat-select>
-</mat-form-field>
-</form>
+    <mat-form-field class="w-full">
+      <mat-label> Contraseña </mat-label>
+      <input formControlName="password" matInput type="password" />
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label> Rol </mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="ADMIN">Administrador</mat-option>
+        <mat-option value="Employee">Empleado</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
 </div>
 
 <div mat-dialog-actions>
-    <button (click)="onConfirm()" mat-button>Confirmar</button>
-    <button mat-dialog-close mat-button>Cancelar</button>
-
+  <button (click)="onConfirm()" mat-button [disabled]="UserForm.invalid" >Confirmar</button>
+  <button mat-dialog-close mat-button>Cancelar</button>
 </div>

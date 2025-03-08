@@ -11,19 +11,19 @@
             <div class="card">
                 <h2>📖 Cursos Disponibles</h2>
                 <p>Explora todos los cursos activos en la plataforma.</p>
-                <button mat-flat-button>Ver Cursos</button>
+                <button mat-flat-button [routerLink]="'/dashboard/courses'">Ver Cursos</button>
             </div>
 
             <div class="card">
                 <h2>👩‍🎓 Estudiantes</h2>
                 <p>Consulta y gestiona los estudiantes inscritos.</p>
-                <button mat-flat-button>Ver Estudiantes</button>
+                <button mat-flat-button [routerLink]="'/dashboard/students'">Ver Estudiantes</button>
             </div>
 
             <div class="card">
                 <h2>📝 Inscripciones</h2>
                 <p>Revisa las últimas inscripciones realizadas.</p>
-                <button mat-flat-button>Ver Inscripciones</button>
+                <button mat-flat-button [routerLink]="'/dashboard/enrollments'">Ver Inscripciones a cursos</button>
             </div>
         </section>
     </div>

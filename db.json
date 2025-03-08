@@ -2,7 +2,7 @@
   "courses": [
     {
       "id": "6c",
-      "name": "Econometrics",
+      "name": "Econometrics2",
       "category": "dataScience"
     },
     {
@@ -14,11 +14,6 @@
       "id": "8df5",
       "name": "Business Intelligence",
       "category": "dataScience"
-    },
-    {
-      "id": "6100",
-      "name": "Java",
-      "category": "programacion"
     },
     {
       "id": "5ab5",
@@ -33,6 +28,11 @@
     {
       "id": "ee34",
       "name": "Angular",
+      "category": "programacion"
+    },
+    {
+      "id": "d75f",
+      "name": "JavaScript",
       "category": "programacion"
     }
   ],
@@ -51,51 +51,55 @@
       "id": "b369",
       "name": "Lauren",
       "lastname": "Strauss"
+    },
+    {
+      "id": "8b4b",
+      "name": "Diego",
+      "lastname": "Rodriguez"
+    },
+    {
+      "id": "63d2",
+      "name": "Adara",
+      "lastname": "Black"
     }
   ],
   "teachers": [
     {
-      "id": "1t",
-      "name": "Danna",
-      "courseId": "2"
+      "id": "6t",
+      "name": "Adara",
+      "courseId": "c258"
     },
     {
-      "id": "2t",
-      "name": "Elisabeth",
-      "courseId": "5"
-    },
-    {
-      "id": "3t",
-      "name": "David",
-      "courseId": "4"
-    },
-    {
-      "id": "4",
-      "name": "Juan",
-      "courseId": "6"
+      "id": "c9b6",
+      "name": "Camilo"
     }
   ],
   "enrollments": [
-    {
-      "id": "43ed",
-      "studentId": "0ba0",
-      "courseId": "6100"
-    },
     {
       "id": "8586",
       "studentId": "1c76",
       "courseId": "6c"
     },
     {
-      "id": "835e",
+      "id": "422a",
+      "studentId": "0ba0",
+      "courseId": "e231"
+    },
+    {
+      "id": "b11a",
       "studentId": "b369",
+      "courseId": "8df5"
+    },
+    {
+      "id": "bd09",
+      "studentId": "0ba0",
       "courseId": "c258"
     }
   ],
   "users": [
     {
       "id": "asdas1",
-      "name": "admin",
+      "name": "admin1",
       "accessToken": "p8y924htkmsgr1",
       "email": "admin@email.com",
       "password": "123456",
@@ -108,6 +112,13 @@
       "email": "emp@email.com",
       "password": "123456",
       "role": "Employee"
+    },
+    {
+      "id": "01b3",
+      "name": "adm2",
+      "email": "adm2@email.com",
+      "password": "123456",
+      "role": "ADMIN"
     }
   ]
 }

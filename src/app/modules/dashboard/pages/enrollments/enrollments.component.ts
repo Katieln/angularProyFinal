@@ -94,8 +94,13 @@ onSubmit(): void {
 }
 
 onDeleteEnrollment(id: string): void {
-  this.store.dispatch(EnrollmentActions.deleteEnrollment({ id }));
+  if (confirm('¿Está seguro de eliminar esta inscripción?')) {
+    this.store.dispatch(EnrollmentActions.deleteEnrollment({ id }));
+  }
 }
+
+
+
 
 onEditEnrollment(enrollment: Enrollment): void {
   this.enrollmentForm.patchValue({

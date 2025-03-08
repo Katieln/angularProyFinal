@@ -1,28 +1,6 @@
 
 
 
-<form class="w-full">
-    <mat-form-field class="field">
-        <mat-label> Nombre Profesor </mat-label>
-        <input formControlName="name" matInput/>
-    </mat-form-field>
-
-    <mat-form-field class="field">
-        <mat-label>Curso</mat-label>
-
-    <mat-select formControlName="category">
-        <mat-option required [value]="'programacion'">programacion</mat-option>
-        <mat-option [value]="'dataScience'">DataScience</mat-option>
-    </mat-select>
-</mat-form-field>
-</form>
-
-
-<div >
-    <button mat-flat-button >Confirmar Profesor</button>
-
-
-</div>
 
 
 
@@ -45,10 +23,12 @@
     </ng-container>
 
        <!-- Course Column -->
-       <ng-container matColumnDef="category">
+       <ng-container matColumnDef="course">
         <th mat-header-cell *matHeaderCellDef> Curso </th>
-        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.course?.name}} </td>
       </ng-container>
+
+      
 
        <!-- Actions Column -->
        <ng-container matColumnDef="action">

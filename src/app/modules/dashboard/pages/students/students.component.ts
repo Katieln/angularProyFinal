@@ -96,7 +96,7 @@ export class StudentsComponent implements OnInit {
     }
   
     onDelete(id: string): void {
-      if (confirm('Esta seguro?')) {
+      if (confirm('Esta seguro de eliminar estudiante?')) {
         this.isLoading = true;
         this.StudentService.deleteStudentByID(id).subscribe({
           next: (data) => {

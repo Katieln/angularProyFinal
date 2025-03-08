@@ -38,6 +38,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/enrollments/enrollments.module').then((m) => m.EnrollmentsModule),
   },
+
 ];
 
 @NgModule({

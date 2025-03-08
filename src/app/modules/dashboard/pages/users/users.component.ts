@@ -94,7 +94,7 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete(id: string): void {
-    if (confirm('Esta seguro?')) {
+    if (confirm('Esta seguro de eliminar usuario?')) {
       this.isLoading = true;
       this.userService.deleteUserByID(id).subscribe({
         next: (data) => {

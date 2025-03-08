@@ -30,28 +30,27 @@ getStudents(): Observable<Student[]> {
         );
       }
 
+      
+
 
     createStudent ( payload : {name: string}): Observable <Student[]> {
         return this.httpClient.post <Student>( `${environment.baseApiURL}/students`,  payload )
         .pipe(concatMap(()=>this.getStudents()))
-
-
     }
+
+
 
     deleteStudentByID(id: string): Observable <Student[]>{
         return this.httpClient.delete <Student>( `${environment.baseApiURL}/students/${id}` )
         .pipe(concatMap(()=>this.getStudents()))
-
-
-
     }
+
+
 
     updateStudentById(id: string, data: { name: string }): Observable<Student[]> {
         return this.httpClient
           .patch<Student>(`${environment.baseApiURL}/students/${id}`, data)
-          .pipe(concatMap(() => this.getStudents()));
-
-      
+          .pipe(concatMap(() => this.getStudents())); 
       }
     
 

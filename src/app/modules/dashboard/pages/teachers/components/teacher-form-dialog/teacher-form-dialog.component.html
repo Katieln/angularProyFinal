@@ -1,1 +1,71 @@
-<p>teacher-form-dialog works!</p>
+<h2 mat-dialog-title>Crear Profesor!</h2>
+
+<div mat-dialog-content>
+<form [formGroup]="TeacherForm">
+    <mat-form-field class="w-full">
+        <mat-label> Nombre Profesor </mat-label>
+        <input formControlName="name" matInput/>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+        <mat-label>Curso</mat-label>
+        <mat-select formControlName="courseId">
+          <mat-option [value]="course.id" *ngFor="let course of courses">
+              {{ course.name }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+
+</form>
+</div>
+
+<div mat-dialog-actions>
+    <button (click)="onConfirm()" mat-button >Confirmar</button>
+    <button mat-dialog-close mat-button>Cancelar</button>
+
+</div>
+ 
+
+
+<!-- <h1>Profesores</h1>
+
+disabled]="TeacherForm.invalid"
+
+<form class="w-full">
+    <mat-form-field class="field">
+        <mat-label> Nombre Profesor </mat-label>
+        <input formControlName="name" matInput/>
+    </mat-form-field>
+
+        <mat-form-field class="w-full">
+        <mat-label>Curso</mat-label>
+        <mat-select formControlName="courseId">
+          <mat-option [value]="course.id" *ngFor="let course of courses">
+              {{ course.name }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+    <mat-form-field class="w-full">
+        <mat-label>Curso</mat-label>
+        <mat-select formControlName="courseId">
+          <mat-option [value]="course.id" *ngFor="let course of courses">
+              {{ course.name }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+<div >
+    <button type="submit" mat-flat-button >Confirmar Profesor</button>
+
+
+</div>
+
+
+<app-teacher-table
+[dataSource] = "dataSource" 
+(delete) = "onDelete($event)" 
+(edit)="openFromDialog($event)"/>
+
+ -->

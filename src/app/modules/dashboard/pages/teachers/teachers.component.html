@@ -1,5 +1,55 @@
-<h1>Profesores</h1>
+<h2>Profesores</h2>
+
+
+@if (isLoading) {
+<mat-spinner/>
+} @else {
+
+
+    <button 
+    [disabled]="!(isAdmin$ | async)"
+    (click)="openFromDialog()" mat-flat-button>
+        Crear Profesor
+    </button>
+
+<app-teacher-table 
+[dataSource] = "dataSource" 
+(delete) = "onDelete($event)" 
+(edit)="openFromDialog($event)"
+/>
+
+
+}
+
+
+<!-- <h1>Profesores</h1>
+
+<form class="w-full">
+    <mat-form-field class="field">
+        <mat-label> Nombre Profesor </mat-label>
+        <input formControlName="name" matInput/>
+    </mat-form-field>
+
+
+    <mat-form-field class="w-full">
+        <mat-label>Curso</mat-label>
+        <mat-select formControlName="courseId">
+          <mat-option [value]="course.id" *ngFor="let course of courses">
+              {{ course.name }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+<div >
+    <button type="submit" mat-flat-button >Confirmar Profesor</button>
+
+
+</div>
+
+
 <app-teacher-table
 [dataSource] = "dataSource" 
 (delete) = "onDelete($event)" 
 (edit)="openFromDialog($event)"/>
+
+ -->

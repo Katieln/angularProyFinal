@@ -36,9 +36,15 @@ export class UsersService {
 
 
   createUser ( payload : {name: string}): Observable <User[]> {
-          return this.httpClient.post <User>( `${environment.baseApiURL}/users`,  payload )
-          .pipe(concatMap(()=>this.getUsers()))
-
+    const accessToken = Math.random().toString(36).substring(2) + Date.now().toString(36);
+    const userWithToken = { ...payload, accessToken };
+          return this.httpClient.post <User>( `${environment.baseApiURL}/users`,  userWithToken )
+          .pipe(concatMap((user) => {
+            if (user.accessToken) {
+              localStorage.setItem('access_token', user.accessToken);
+            }
+            return this.getUsers();
+          }))
       }
 
       updateUserById(id: string, data: { name: string }): Observable<User[]> {

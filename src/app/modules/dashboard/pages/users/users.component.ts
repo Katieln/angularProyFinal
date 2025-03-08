@@ -57,7 +57,7 @@ export class UsersComponent implements OnInit {
   }
 
 
-  createUser (data: {name: string}): void{
+  createUser (data: { name: string; email: string; password: string; role: string}): void{
     this.userService.createUser(data).subscribe ({
       next: (data) => this.handleusersUpdate(data),
       error: (err) => (this.isLoading = false),

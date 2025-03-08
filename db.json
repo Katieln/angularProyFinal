@@ -131,6 +131,14 @@
       "email": "adm2@email.com",
       "password": "123456",
       "role": "ADMIN"
+    },
+    {
+      "id": "e8aa",
+      "name": "emp2",
+      "email": "emp2@email.com",
+      "password": "123456",
+      "role": "Employee",
+      "accessToken": "rfy1cj2nu8m80fjca9"
     }
   ]
 }

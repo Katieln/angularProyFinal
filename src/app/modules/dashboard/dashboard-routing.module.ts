@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    canActivate: [adminGuard],
+
     loadChildren: () =>
       import('./pages/users/users.module').then((m) => m.UsersModule),
   },

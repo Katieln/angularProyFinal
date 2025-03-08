@@ -41,6 +41,7 @@ onConfirm(): void {
 
   if (this.UserForm.invalid){
     this.UserForm.markAllAsTouched();
+    return;
   }
   this.matDialogref.close(this.UserForm.value);
 }
